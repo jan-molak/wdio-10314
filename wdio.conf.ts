@@ -1,4 +1,5 @@
 import type { Options } from '@wdio/types'
+import CustomReporter from './test/CustomReporter';
 
 export const config: Options.Testrunner = {
     //
@@ -153,7 +154,13 @@ export const config: Options.Testrunner = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: [
+        'spec',
+
+        [CustomReporter, {
+            someOption: 'foobar'
+        }]
+    ],
 
     
     //

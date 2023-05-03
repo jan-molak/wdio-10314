@@ -1,4 +1,4 @@
-import { baseUrl } from './config.js'
+import { baseUrl } from './config'
 
 describe('My Login application', () => {
     it('should login with valid credentials', async () => {
