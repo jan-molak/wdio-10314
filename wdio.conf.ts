@@ -63,7 +63,26 @@ export const config: Options.Testrunner = {
     //
     capabilities: [{
         // capabilities for local browser web tests
-        browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
+        browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
+
+        acceptInsecureCerts: true,
+        // If outputDir is provided WebdriverIO can capture driver session logs
+        // it is possible to configure which logTypes to include/exclude.
+        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
+        // excludeDriverLogs: ['bugreport', 'server'],
+
+        'goog:chromeOptions': {
+            args: [
+                '--disable-web-security',
+                '--allow-file-access-from-files',
+                '--allow-file-access',
+                '--disable-infobars',
+                '--ignore-certificate-errors',
+                '--headless',
+                '--disable-gpu',
+                '--window-size=1024x768',
+            ]
+        }
     }],
     //
     // ===================
